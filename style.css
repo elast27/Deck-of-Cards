@@ -2,4 +2,16 @@
   border: 1px solid black;
   border-radius: 10px;
   text-align: center;
+  float: center;
+  padding-bottom: 10px;
 }
+
+input[type='number'] {
+  width: 80px;
+}
+
+html {
+  padding-top: 20px;
+  text-align: center;
+}
+
