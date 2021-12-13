@@ -6,18 +6,20 @@
   </head>
   <body>
     <script src="index.js"></script>
-    <div id="app">
+    <div id="app" class="container">
     <div>
       <label>Give</label>
-      <input type="number" id='noCards'></input>
+      <input type="number" id='noCards' maxlength="2"></input>
       <label> cards to </label>
-      <input type="number" id='players'></input>
+      <input type="number" id='players' maxlength="2"></input>
       <label>players</label>
     </div>
-    <div>
-      <button id="shuffle">Shuffle</button>
-      <button id="deal">Deal</button>
+    <div id='menu' class='row'>
+      <button id="shuffle" class='col'>Shuffle</button>
+      <button id="deal" class='col'>Deal</button>
+      <button id="dealOne" class = 'col'>Deal One</button>
     </div>
-    <div id="board" class="container"></div>
+    <div id="board" class="row"></div>
+   
   </body>
 </html>
