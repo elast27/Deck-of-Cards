@@ -32,6 +32,7 @@ function reloadDeck() {
 }
 document.getElementById('shuffle').addEventListener('click', shuffle, false);
 document.getElementById('deal').addEventListener('click', deal, false);
+document.getElementById('dealOne').addEventListener('click', dealOne, false);
 
 function shuffle() {
   for (var i = 0; i < 3000; i++) {
@@ -63,6 +64,9 @@ function deal() {
     player.innerHTML = `<strong>Player ${i + 1}</strong>`;
     player.className = 'row player';
     for (var j = 0; j < cards; j++) {
+      let cardContainer = document.createElement('div');
+      cardContainer.className = `col`;
+      player.appendChild(cardContainer);
       let card = document.createElement('div');
       let selected = deck.pop();
       let icon = '';
@@ -75,9 +79,25 @@ function deal() {
         card.style.color = 'red';
       } else icon = '&clubs;';
       card.innerHTML = selected.Value + icon;
-      card.className = 'card';
-      card.className = `col-${12 / cards}`;
-      player.appendChild(card);
+      card.className = `card text-center`;
+      cardContainer.appendChild(card);
     }
   }
+}
+
+function dealOne() {
+  let card = document.createElement('div');
+  let selected = deck.pop();
+  let icon = '';
+  if (selected.Suit == 'hearts') {
+    icon = '&hearts;';
+    card.style.color = 'red';
+  } else if (selected.Suit == 'spades') icon = '&spades;';
+  else if (selected.Suit == 'diamonds') {
+    icon = '&diams;';
+    card.style.color = 'red';
+  } else icon = '&clubs;';
+  card.innerHTML = selected.Value + icon;
+  card.className = `card text-center col`;
+  document.getElementById('board').appendChild(card);
 }
