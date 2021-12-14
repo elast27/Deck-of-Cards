@@ -33,6 +33,7 @@ function reloadDeck() {
 document.getElementById('shuffle').addEventListener('click', shuffle, false);
 document.getElementById('deal').addEventListener('click', deal, false);
 document.getElementById('dealOne').addEventListener('click', dealOne, false);
+document.getElementById('showDeck').addEventListener('click', showDeck, false);
 
 function shuffle() {
   for (var i = 0; i < 3000; i++) {
@@ -100,4 +101,10 @@ function dealOne() {
   card.innerHTML = selected.Value + icon;
   card.className = `card text-center col`;
   document.getElementById('board').appendChild(card);
+}
+
+function showDeck() {
+  while (deck.length > 0) {
+    dealOne();
+  }
 }
