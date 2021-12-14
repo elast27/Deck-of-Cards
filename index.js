@@ -79,7 +79,7 @@ function deal() {
         icon = '&diams;';
         card.style.color = 'red';
       } else icon = '&clubs;';
-      card.innerHTML = selected.Value + icon;
+      card.innerHTML = `<p>${selected.Value}${icon}</p>`;
       card.className = `card text-center`;
       cardContainer.appendChild(card);
     }
@@ -87,6 +87,7 @@ function deal() {
 }
 
 function dealOne() {
+  if (deck.length === 0) return;
   let card = document.createElement('div');
   let selected = deck.pop();
   let icon = '';
@@ -98,13 +99,16 @@ function dealOne() {
     icon = '&diams;';
     card.style.color = 'red';
   } else icon = '&clubs;';
-  card.innerHTML = selected.Value + icon;
-  card.className = `card text-center col`;
+  card.innerHTML = `<p>${selected.Value}${icon}</p>`;
+  card.className = `card text-center col-1`;
   document.getElementById('board').appendChild(card);
+  window.scrollTo(0, document.body.scrollHeight);
 }
 
 function showDeck() {
+  if (deck.length === 0) return;
   while (deck.length > 0) {
     dealOne();
   }
+  window.scrollTo(0, document.body.scrollHeight);
 }
